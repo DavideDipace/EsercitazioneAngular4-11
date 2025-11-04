@@ -1,0 +1,9 @@
+<div *ngIf="book">
+  <button (click)="tornaCatalogo()">← Torna al Catalogo</button>
+
+  <img [src]="book.coverImage" alt="{{ book.title }}">
+  <h1>{{ book.title }}</h1>
+  <h3>{{ book.author }}</h3>
+  <p><em>{{ book.genre }}</em></p>
+  <p>{{ book.description }}</p>
+</div>

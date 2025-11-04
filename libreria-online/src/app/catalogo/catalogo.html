@@ -1,0 +1,20 @@
+<div class="catalogo">
+  <h1>Catalogo Libri</h1>
+
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Cerca titolo o autore" (input)="filterBooks()">
+
+  <select [(ngModel)]="selectedGenre" (change)="filterBooks()">
+    <option value="">Tutti i generi</option>
+    <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+  </select>
+
+  <div class="books">
+    <div *ngFor="let book of filteredBooks" class="book-card">
+      <img [src]="book.coverImage" alt="{{ book.title }}">
+      <h3>{{ book.title }}</h3>
+      <p><strong>{{ book.author }}</strong></p>
+      <p><em>{{ book.genre }}</em></p>
+      <button (click)="goToDetails(book.id)">Dettagli</button>
+    </div>
+  </div>
+</div>
